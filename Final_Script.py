@@ -1,12 +1,10 @@
 """  
 University of Manchester, Physics and Astronomy Department
-Year 2, Semester 1, Module: Introduction to Programming for Physicists.
 
                         Extraction of Lambda coefficient and Half life for Rubidium and Strontium
                         from detector data 
                         
 Author: Andreas Mastronikolis
-Student ID: 10281135
 Date: 13/12/2019
 
 Purpose of the program:
