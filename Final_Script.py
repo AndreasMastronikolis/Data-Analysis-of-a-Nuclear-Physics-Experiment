@@ -1,9 +1,9 @@
 """  
 University of Manchester, Physics and Astronomy Department
-Year 2, Semester 1.
+Year 2, Semester 1, Module: Introduction to Programming for Physicists.
 
-                    Extraction of Lambda coefficient and Half life for Rubidium and Strontium
-                    from detector data 
+                        Extraction of Lambda coefficient and Half life for Rubidium and Strontium
+                        from detector data 
                         
 Author: Andreas Mastronikolis
 Student ID: 10281135
@@ -322,12 +322,13 @@ Detector_Data.grid(True)
 Detector_Data.set_title(r'Activity of $^{79}$Rb with respect to time')
 Detector_Data.set_ylabel(r'Activity [Bq]')
 Detector_Data.set_xlabel(r'Time [s]')
-Detector_Data.errorbar(Faulty_Data[:,0], Faulty_Data[:,1], yerr = Faulty_Data[:,2], fmt = '. k', barsabove = False, capsize = 1.5, ecolor = 'red', elinewidth = 0.5, capthick = 1)
+Detector_Data.errorbar(Faulty_Data[:,0], Faulty_Data[:,1], yerr = Faulty_Data[:,2], fmt = 's k', barsabove = False, capsize = 1.5, ecolor = 'red', elinewidth = 0.5, mfc = 'orange', capthick = 1, alpha = 0.5, markersize = 4)
 Detector_Data.plot(Data[:,0], Activity_Rb(Data[:,0], Sr_min, Rb_min), color = 'blue', linewidth = 2.5, alpha = 0.75)
 
 Residuals = Raw_Data.add_subplot(Sizes[1]) # New subplot that provides information on residuals
 Residuals.set_ylabel('Residuals')
-Residuals.errorbar(Data[:,0], Activity_Rb(Data[:,0], Sr_min, Rb_min) - Data[:,1], yerr = Data[:,2], fmt = '. k')
+Residuals.grid(True)
+Residuals.errorbar(Data[:,0], Activity_Rb(Data[:,0], Sr_min, Rb_min) - Data[:,1], yerr = Data[:,2], fmt = 's k', barsabove = False, capsize = 1.5, ecolor = 'red', elinewidth = 0.5, mfc = 'orange', capthick = 1, alpha = 0.5, markersize = 4)
 Residuals.plot(Data[:,0], 0*Data[:,0])
 
 if 0.5 < Chi_Squared_Min / Deg_Freedom < 2: # Depending on how good the reduced chi squared is, the text includes a fit assessment message
@@ -355,5 +356,3 @@ print('\nFor the element Sr | Lambda Factor: ({:5.5f} ± {:5.5f}) /s  | Half Lif
 print('For the element Rb | Lambda Factor: ({:6.6f} ± {:6.6f}) /s | Half Life: ({:3.3f} ± {:3.3f}) min'.format(Rb_min, Sigma_Rb, hL_Rb / 60, Sigma_hL_Rb / 60))
 print('\nEnd of application')
 print('_'*100)
-
-
